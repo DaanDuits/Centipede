@@ -20,6 +20,6 @@ public class Movement : MonoBehaviour
             transform.eulerAngles += transform.up * xInput * Time.deltaTime * 100;
         Camera.main.transform.rotation= Quaternion.Slerp(Camera.main.transform.rotation, transform.rotation, Time.deltaTime * 5);
         Camera.main.transform.rotation = Quaternion.Euler(25, Camera.main.transform.eulerAngles.y, 0);
-        Camera.main.transform.position = Vector3.Slerp(Camera.main.transform.position, transform.position - (transform.forward * 7) + transform.up * 6, Time.deltaTime * 10);
+        Camera.main.transform.position = Vector3.Slerp(Camera.main.transform.position, transform.position - (transform.forward * 17) + transform.up * 9, Time.deltaTime * 10);
     }
 }
