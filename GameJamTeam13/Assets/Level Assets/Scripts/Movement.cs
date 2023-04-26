@@ -16,10 +16,12 @@ public class Movement : MonoBehaviour
         float yInput = Input.GetAxis("Vertical");
         float xInput = (Input.mousePosition.x / Screen.width) * 2 - 1;
         transform.position += transform.forward * yInput * Time.deltaTime * 12;
-        if (yInput > 0 || yInput < 0)
-            transform.eulerAngles += transform.up * xInput * Time.deltaTime * 100;
+        transform.eulerAngles += transform.up * xInput * Time.deltaTime * 100;
+
         Camera.main.transform.rotation= Quaternion.Slerp(Camera.main.transform.rotation, transform.rotation, Time.deltaTime * 5);
         Camera.main.transform.rotation = Quaternion.Euler(25, Camera.main.transform.eulerAngles.y, 0);
         Camera.main.transform.position = Vector3.Slerp(Camera.main.transform.position, transform.position - (transform.forward * 17) + transform.up * 9, Time.deltaTime * 10);
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -95, 95), transform.position.y, Mathf.Clamp(transform.position.z, -95, 95));
     }
 }

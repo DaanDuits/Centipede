@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class FoodBehaviour : MonoBehaviour
 {
-    public ScoreSystem scoreSystem;
+    ScoreSystem scoreSystem;
     public int score;
+
+    private void Start()
+    {
+        scoreSystem = GameObject.Find("ScoreManager").GetComponent<ScoreSystem>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision");
         if (other.gameObject.name == "Head")
         {
+            other.GetComponent<AudioSource>().Play();
             scoreSystem.AddScore(score);
             Destroy(gameObject);
         }

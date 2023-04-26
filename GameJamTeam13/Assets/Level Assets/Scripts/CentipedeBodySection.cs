@@ -17,8 +17,8 @@ public class CentipedeBodySection : MonoBehaviour
             return;
         }
         
-        transform.position = Vector3.Slerp(transform.position, leader.transform.position - leader.transform.forward, Time.deltaTime * 40);
-        transform.rotation = Quaternion.Slerp(transform.rotation, leader.transform.rotation, Time.deltaTime * 5);
+        transform.position = Vector3.Slerp(transform.position, leader.transform.position - leader.transform.forward, Time.deltaTime * 100);
+        transform.rotation = Quaternion.Slerp(transform.rotation, leader.transform.rotation, Time.deltaTime * 10);
 
         if (follower != null)
             follower.UpdateSection();

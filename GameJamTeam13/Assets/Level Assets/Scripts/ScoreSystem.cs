@@ -9,6 +9,8 @@ public class ScoreSystem : MonoBehaviour
     public Slider levelBar;
     public TMP_Text xpProgress;
 
+    public GameObject victoryScreen;
+
     public void AddScore(int score)
     {
         levelBar.value += score;
@@ -19,5 +21,17 @@ public class ScoreSystem : MonoBehaviour
     void Start()
     {
         xpProgress.text = $"{levelBar.value}/{levelBar.maxValue}";
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (levelBar.value == levelBar.maxValue)
+            LevelComplete();
+    }
+
+    public void LevelComplete()
+    {
+        victoryScreen.SetActive(true);
     }
 }
